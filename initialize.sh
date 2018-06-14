@@ -6,6 +6,8 @@
 
 cd `dirname $0`
 
+chmod -R +x ./
+
 echo -n 'Did you create this server with application template? [y/n]: '
 read input
 
