@@ -14,4 +14,4 @@ echo "set encoding=utf-8"           >> /etc/virc
 echo "set fileencodings=utf-8,sjis" >> /etc/virc
 
 yum update -y && yum clean all
-yum install -y bash-completion git tree
+yum install -y bash-completion tree git net-tools
