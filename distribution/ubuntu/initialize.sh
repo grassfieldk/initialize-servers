@@ -4,10 +4,10 @@
 ## Distribution > Ubuntu > Initialize
 ##
 
-echo ""                                 >> /etc/bashrc
-echo "HISTTIMEFORMAT='%Y/%m/%d %H:%M '" >> /etc/bashrc
-echo "HISTSIZE=999"                     >> /etc/bashrc
-echo "HISTFILESIZE=9999"                >> /etc/bashrc
+echo ""                                 >> /etc/bash.bashrc
+echo "HISTTIMEFORMAT='%Y/%m/%d %H:%M '" >> /etc/bash.bashrc
+echo "HISTSIZE=999"                     >> /etc/bash.bashrc
+echo "HISTFILESIZE=9999"                >> /etc/bash.bashrc
 
 echo ""                             >> /etc/virc
 echo "set encoding=utf-8"           >> /etc/virc
