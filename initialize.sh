@@ -25,7 +25,7 @@ else
 fi
 
 # Automatic
-$distribution = `./check_distribution.sh`
+distribution=`./check_distribution.sh`
 
 # Initialize
 case $distribution in
