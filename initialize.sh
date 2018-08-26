@@ -5,16 +5,13 @@
 ##
 
 cd `dirname $0`
-
 chmod -R +x ./
 
+# Interactive
 echo -n 'Did you create this server with application template? [y/n]: '
-read input
+read isAppServer
 
-
-$distribution = `./check_distribution.sh`
-
-if [ $input = 'y' ]
+if [ $isAppServer = 'y' ]
 then
   echo ''
   echo 'Which template?'
@@ -23,11 +20,14 @@ then
   read template
 
 else
-  echo 'I agree.'
+  :
 
 fi
 
+# Automatic
+$distribution = `./check_distribution.sh`
 
+# Initialize
 case $distribution in
   'centos' ) ./distribution/centos/initialize.sh ;;
   'ubuntu' ) ./distribution/ubuntu/initialize.sh ;;
