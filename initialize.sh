@@ -1,39 +1,45 @@
 #!/bin/bash
-
-##
-## Common > Initialize
-##
+set -eu
 
 cd `dirname $0`
 chmod -R +x ./
 
-# Interactive
-echo -n 'Did you create this server with application template? [y/n]: '
-read isAppServer
 
-if [ $isAppServer = 'y' ]
+# Installation options
+echo -n 'Install Node.js? [y/n]: '
+read nodejs
+
+echo -n 'Install Docker? [y/n]: '
+read docker
+if [ $docker = 'y' ]
 then
-  echo ''
-  echo 'Which template?'
-  echo 'l ... LAMP'
-  echo 'r ... Ruby on Rails'
-  read template
-
-else
-  :
-
+  echo -n 'Install Docker Compose? [y/n]: '
+  read dockercompose
 fi
 
-# Automatic
-distribution=`./check_distribution.sh`
 
-# Initialize
+# Common Initialization
+./common/install.sh
+
+distribution=`./common/check_distribution.sh`
 case $distribution in
-  'centos' ) ./distribution/centos/initialize.sh ;;
-  'ubuntu' ) ./distribution/ubuntu/initialize.sh ;;
+  'centos' ) ./distribution/centos.sh ;;
+  'ubuntu' ) ./distribution/ubuntu.sh ;;
 esac
 
-case $template in
-  'l' ) ./template/lamp.sh ;;
-  'r' ) ./template/rails.sh ;;
-esac
+
+# Optional Installation
+if [ $nodejs = 'y' ]
+then
+  #TODO: install volta
+fi
+
+if [ $docker = 'y' ]
+then
+  #TODO: install docker
+fi
+
+if [ $dockercompose = 'y' ]
+then
+  #TODO: install docker compose
+fi

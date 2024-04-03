@@ -6,50 +6,49 @@
 
 if   [ -e /etc/debian_version ] ||
      [ -e /etc/debian_release ]; then
-    # Check Ubuntu or Debian
     if [ -e /etc/lsb-release ]; then
         # Ubuntu
-        distri_name="ubuntu"
+        distribution="ubuntu"
     else
         # Debian
-        distri_name="debian"
+        distribution="debian"
     fi
 elif [ -e /etc/fedora-release ]; then
     # Fedra
-    distri_name="fedora"
+    distribution="fedora"
 elif [ -e /etc/redhat-release ]; then
     if [ -e /etc/oracle-release ]; then
         # Oracle Linux
-        distri_name="oracle"
+        distribution="oracle"
     elif [ -e /etc/centos-release ]; then
         # CentOS
-        distri_name="centos"
+        distribution="centos"
     else
         # Red Hat Enterprise Linux
-        distri_name="redhat"
+        distribution="redhat"
     fi
 elif [ -e /etc/arch-release ]; then
     # Arch Linux
-    distri_name="arch"
+    distribution="arch"
 elif [ -e /etc/turbolinux-release ]; then
     # Turbolinux
-    distri_name="turbol"
+    distribution="turbol"
 elif [ -e /etc/SuSE-release ]; then
     # SuSE Linux
-    distri_name="suse"
+    distribution="suse"
 elif [ -e /etc/mandriva-release ]; then
     # Mandriva Linux
-    distri_name="mandriva"
+    distribution="mandriva"
 elif [ -e /etc/vine-release ]; then
     # Vine Linux
-    distri_name="vine"
+    distribution="vine"
 elif [ -e /etc/gentoo-release ]; then
     # Gentoo Linux
-    distri_name="gentoo"
+    distribution="gentoo"
 else
     # Other
     echo "unkown distribution"
-    distri_name="unkown"
+    distribution="unkown"
 fi
 
-echo $distri_name
+echo $distribution
